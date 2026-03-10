@@ -1,0 +1,9 @@
+@model HomePageViewModel
+<section class="section-reveal" aria-labelledby="contact-preview-title">
+    <div class="section-head">
+        <p class="kicker">07</p>
+        <h2 id="contact-preview-title">Contact / engagement</h2>
+    </div>
+    <p class="lead-copy">@Model.ContactSummary</p>
+    <p><a class="inline-link" asp-controller="Home" asp-action="Contact">Contact details</a></p>
+</section>

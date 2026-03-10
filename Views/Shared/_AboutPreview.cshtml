@@ -1,0 +1,9 @@
+@model HomePageViewModel
+<section class="section-reveal" aria-labelledby="about-preview-title">
+    <div class="section-head">
+        <p class="kicker">06</p>
+        <h2 id="about-preview-title">About</h2>
+    </div>
+    <p class="lead-copy">@Model.AboutSummary</p>
+    <p><a class="inline-link" asp-controller="Home" asp-action="About">Read full about</a></p>
+</section>

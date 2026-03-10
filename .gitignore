@@ -1,0 +1,50 @@
+# Build artifacts
+bin/
+obj/
+out/
+publish/
+artifacts/
+
+# IDE and tooling
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs and diagnostics
+*.log
+*.tlog
+TestResults/
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+
+# Compiled binaries/libraries
+*.dll
+*.exe
+*.pdb
+*.so
+*.dylib
+*.a
+*.lib
+
+# Packaging and archives
+*.zip
+*.7z
+*.rar
+*.tar
+*.gz
+
+# Generated frontend artifacts
+node_modules/
+dist/
+coverage/
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-label="Placeholder image four">
+  <rect width="1400" height="900" fill="#c6c6c2"/>
+  <rect x="120" y="120" width="1160" height="660" fill="none" stroke="#1a1a1a" stroke-width="4"/>
+  <path d="M120,700 C380,280 1020,280 1280,700" fill="none" stroke="#1a1a1a" stroke-width="3"/>
+  <text x="160" y="180" font-size="44" letter-spacing="6" fill="#1a1a1a" font-family="Arial, Helvetica, sans-serif">PLACEHOLDER 04</text>
+</svg>

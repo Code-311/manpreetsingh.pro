@@ -1,0 +1,21 @@
+@model ModelsPageViewModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+<section class="page-intro section-reveal">
+    <p class="kicker">Models</p>
+    <h1>@Model.Title</h1>
+    <p>@Model.Intro</p>
+</section>
+<section>
+    <div class="card-grid">
+        @foreach (var item in Model.Items)
+        {
+            <article class="info-card" tabindex="0">
+                <h2><a asp-controller="Home" asp-action="Model" asp-route-slug="@item.Slug">@item.Name</a></h2>
+                <p>@item.Summary</p>
+                <p class="micro">@item.CoreQuestion</p>
+            </article>
+        }
+    </div>
+</section>

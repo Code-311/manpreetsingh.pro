@@ -1,0 +1,17 @@
+@model ContentDetailViewModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+<section class="page-intro section-reveal">
+    <p class="kicker">@Model.SectionLabel</p>
+    <h1>@Model.Title</h1>
+    <p>@Model.Summary</p>
+</section>
+<section>
+    <ul class="plain-list">
+        @foreach (var point in Model.Points)
+        {
+            <li>@point</li>
+        }
+    </ul>
+</section>
