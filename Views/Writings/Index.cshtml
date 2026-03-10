@@ -1,14 +1,3 @@
 @model ListPageViewModel<Essay>
-<section>
-    <span class="meta-label">Index</span>
-    <h1>@Model.Title</h1>
-    <p>Essays on decisions, incentives, execution, and organizational delay.</p>
-    @foreach (var item in Model.Items)
-    {
-        <article>
-            <h3><a asp-action="Detail" asp-route-slug="@item.Slug">@item.Title</a></h3>
-            <p>@item.Summary</p>
-            <span class="meta-label">@item.ReadTimeMinutes min · @item.Category</span>
-        </article>
-    }
-</section>
+<h1>@Model.Title</h1>
+@foreach (var item in Model.Items){<article><h2><a asp-action="Detail" asp-route-slug="@item.Slug">@item.Title</a></h2><p>@item.Summary</p></article>}

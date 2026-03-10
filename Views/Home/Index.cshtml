@@ -1,65 +1,9 @@
 @model HomePageViewModel
-<section>
-    <span class="meta-label">Issue 01</span>
-    <h1>How Organizations Really Work</h1>
-    <p>Understanding the forces behind decisions, hierarchy, delay, and execution.</p>
-</section>
-<section>
-    <span class="meta-label">Core Thesis</span>
-    <h2>The Why Gap</h2>
-    <p>Most execution failures begin when people cannot explain why work matters. When context thins out, coordination slows and standards drift.</p>
-</section>
-<section>
-    <span class="meta-label">Models</span>
-    <h2>Featured Models</h2>
-    @foreach (var item in Model.FeaturedModels)
-    {
-        <article>
-            <h3><a asp-controller="Models" asp-action="Detail" asp-route-slug="@item.Slug">@item.Title</a></h3>
-            <p>@item.Summary</p>
-        </article>
-    }
-</section>
-<section>
-    <span class="meta-label">Writings</span>
-    <h2>Selected Writings</h2>
-    @foreach (var item in Model.SelectedWritings)
-    {
-        <article>
-            <h3><a asp-controller="Writings" asp-action="Detail" asp-route-slug="@item.Slug">@item.Title</a></h3>
-            <p>@item.Summary</p>
-        </article>
-    }
-</section>
-<section>
-    <span class="meta-label">Tools</span>
-    <h2>Practical Checks</h2>
-    @foreach (var item in Model.Tools)
-    {
-        <article>
-            <h3><a asp-controller="Tools" asp-action="Detail" asp-route-slug="@item.Slug">@item.Title</a></h3>
-            <p>@item.Summary</p>
-        </article>
-    }
-</section>
-<section>
-    <span class="meta-label">Media</span>
-    <h2>Briefings</h2>
-    @foreach (var item in Model.MediaItems)
-    {
-        <article>
-            <h3>@item.Title</h3>
-            <p>@item.Summary</p>
-        </article>
-    }
-</section>
-<section>
-    <span class="meta-label">About</span>
-    <h2>About</h2>
-    @Html.Raw(Model.AboutPage?.RenderedHtml)
-</section>
-<section>
-    <span class="meta-label">Contact</span>
-    <h2>Contact</h2>
-    @Html.Raw(Model.ContactPage?.RenderedHtml)
-</section>
+<section><h1>HOW ORGANIZATIONS REALLY WORK</h1><p>Understanding the forces behind decisions, hierarchy, delay, and execution.</p></section>
+<section><h2>The Why Gap</h2><p>Most execution failures begin when people cannot explain why work matters.</p></section>
+<section><h2>Featured Models</h2>@foreach(var item in Model.FeaturedModels){<article><h3><a asp-controller="Models" asp-action="Detail" asp-route-slug="@item.Slug">@item.Title</a></h3><p>@item.Summary</p></article>}</section>
+<section><h2>Selected Writings</h2>@foreach(var item in Model.SelectedWritings){<article><h3><a asp-controller="Writings" asp-action="Detail" asp-route-slug="@item.Slug">@item.Title</a></h3><p>@item.Summary</p></article>}</section>
+<section><h2>Tools</h2>@foreach(var item in Model.Tools){<article><h3><a asp-controller="Tools" asp-action="Detail" asp-route-slug="@item.Slug">@item.Title</a></h3></article>}</section>
+<section><h2>Media</h2>@foreach(var item in Model.MediaItems){<article><h3>@item.Title</h3></article>}</section>
+<section><h2>About</h2>@Html.Raw(Model.AboutPage?.RenderedHtml)</section>
+<section><h2>Contact</h2>@Html.Raw(Model.ContactPage?.RenderedHtml)</section>

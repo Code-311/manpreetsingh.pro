@@ -1,6 +1,2 @@
 @model StaticPageViewModel
-<article>
-    <span class="meta-label">Page</span>
-    <h1>@Model.Page.Title</h1>
-    @Html.Raw(Model.Page.RenderedHtml)
-</article>
+<article><h1>@Model.Page.Title</h1>@Html.Raw(Model.Page.RenderedHtml)</article>

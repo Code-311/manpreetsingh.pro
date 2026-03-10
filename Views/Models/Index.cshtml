@@ -1,13 +1,3 @@
 @model ListPageViewModel<FrameworkModel>
-<section>
-    <span class="meta-label">Library</span>
-    <h1>@Model.Title</h1>
-    <p>Operational models for diagnosing where execution gets blocked.</p>
-    @foreach (var item in Model.Items)
-    {
-        <article>
-            <h3><a asp-action="Detail" asp-route-slug="@item.Slug">@item.Title</a></h3>
-            <p>@item.Summary</p>
-        </article>
-    }
-</section>
+<h1>@Model.Title</h1>
+@foreach (var item in Model.Items){<article><h2><a asp-action="Detail" asp-route-slug="@item.Slug">@item.Title</a></h2><p>@item.Summary</p></article>}
