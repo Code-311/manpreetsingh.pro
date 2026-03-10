@@ -1,0 +1,11 @@
+@model DetailPageViewModel<FrameworkModel>
+<article>
+    <span class="meta-label">Model</span>
+    <h1>@Model.Item.Title</h1>
+    <p>@Model.Item.Summary</p>
+    @if (Model.Item.DiagramAssetId.HasValue)
+    {
+        <img src="/assets/@Model.Item.DiagramAssetId" alt="@Model.Item.DiagramAsset?.AltText" />
+    }
+    <div class="prose">@Html.Raw(Model.Item.RenderedHtml)</div>
+</article>

@@ -1,0 +1,11 @@
+@model DetailPageViewModel<Essay>
+<article>
+    <span class="meta-label">Writing</span>
+    <h1>@Model.Item.Title</h1>
+    <p>@Model.Item.Summary</p>
+    @if (Model.Item.HeroAssetId.HasValue)
+    {
+        <img src="/assets/@Model.Item.HeroAssetId" alt="@Model.Item.HeroAsset?.AltText" />
+    }
+    <div class="prose">@Html.Raw(Model.Item.RenderedHtml)</div>
+</article>

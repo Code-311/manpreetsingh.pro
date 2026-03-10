@@ -1,0 +1,2 @@
+@model FrameworkModelEditViewModel
+<h2>Framework Model</h2><form method="post">@Html.AntiForgeryToken()<input asp-for="Slug"/><input asp-for="Title"/><input asp-for="Summary"/><textarea asp-for="MarkdownBody"></textarea><input asp-for="DiagramAssetId"/><input asp-for="SortOrder"/><label>Publish<input asp-for="IsPublished"/></label><button>Save</button></form>

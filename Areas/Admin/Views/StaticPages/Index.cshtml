@@ -1,0 +1,2 @@
+@model IReadOnlyList<StaticPage>
+<h2>Static Pages</h2><a asp-action="Create">Create</a>@foreach(var x in Model){<div>@x.Slug <a asp-action="Edit" asp-route-id="@x.Id">Edit</a><form method="post" asp-action="Delete" asp-route-id="@x.Id">@Html.AntiForgeryToken()<button>Delete</button></form></div>}

@@ -1,0 +1,2 @@
+@model IReadOnlyList<Essay>
+<h2>Essays</h2><a asp-action="Create">Create</a><table>@foreach(var x in Model){<tr><td>@x.Title</td><td>@x.IsPublished</td><td><a asp-action="Edit" asp-route-id="@x.Id">Edit</a><form method="post" asp-action="Delete" asp-route-id="@x.Id">@Html.AntiForgeryToken()<button>Delete</button></form></td></tr>}</table>
