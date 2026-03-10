@@ -1,9 +1,11 @@
 @model HomePageViewModel
-<section class="hero section-reveal" aria-labelledby="hero-title">
-    <div class="meta-row">
-        <span>@Model.HeroKicker</span>
-        <span>UTC+01</span>
+<section class="hero section-reveal" aria-labelledby="hero-thesis">
+    <div class="identity-block">
+        <p class="ms-mark" aria-hidden="true">MS</p>
+        <p class="identity-name">manpreet singh</p>
     </div>
-    <h1 id="hero-title">@Model.HeroStatement</h1>
-    <p class="hero-subline">@Model.HeroSubline</p>
+    <div class="thesis-block">
+        <h1 id="hero-thesis">@Model.HeroTitle</h1>
+        <p>@Model.HeroSubtext</p>
+    </div>
 </section>
