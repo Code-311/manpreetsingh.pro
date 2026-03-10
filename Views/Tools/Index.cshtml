@@ -1,0 +1,14 @@
+@model ListPageViewModel<Tool>
+<section>
+    <span class="meta-label">Practice</span>
+    <h1>@Model.Title</h1>
+    <p>Simple managerial checks designed for quick use in real teams.</p>
+    @foreach (var item in Model.Items)
+    {
+        <article>
+            <h3><a asp-action="Detail" asp-route-slug="@item.Slug">@item.Title</a></h3>
+            <p>@item.Summary</p>
+            <span class="meta-label">@item.ToolType · @item.EstimatedDuration</span>
+        </article>
+    }
+</section>

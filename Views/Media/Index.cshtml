@@ -1,0 +1,17 @@
+@model ListPageViewModel<MediaItem>
+<section>
+    <span class="meta-label">Media</span>
+    <h1>@Model.Title</h1>
+    <p>Short editorial briefings for managers under time pressure.</p>
+    @foreach (var item in Model.Items)
+    {
+        <article>
+            <h3>@item.Title</h3>
+            <p>@item.Summary</p>
+            @if (item.ThumbnailAssetId.HasValue)
+            {
+                <img src="/assets/@item.ThumbnailAssetId" alt="@item.ThumbnailAsset?.AltText" />
+            }
+        </article>
+    }
+</section>

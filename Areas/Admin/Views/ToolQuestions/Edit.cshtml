@@ -1,0 +1,2 @@
+@model ToolQuestionEditViewModel
+<h2>Tool Question</h2><form method="post">@Html.AntiForgeryToken()<select asp-for="ToolId" asp-items="ViewBag.Tools"></select><input asp-for="Prompt"/><input asp-for="HelpText"/><input asp-for="SortOrder"/><input asp-for="MinScore"/><input asp-for="MaxScore"/><button>Save</button></form>
