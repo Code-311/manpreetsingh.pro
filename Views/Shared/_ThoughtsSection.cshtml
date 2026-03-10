@@ -1,0 +1,20 @@
+@model HomePageViewModel
+<section class="thoughts section-reveal" id="thoughts" aria-labelledby="thoughts-title">
+    <div class="section-heading">
+        <p class="micro-label">06</p>
+        <h2 id="thoughts-title">Thoughts & Writings</h2>
+    </div>
+    <div class="essay-list">
+        @foreach (var essay in Model.Essays)
+        {
+            <article class="essay-item" tabindex="0">
+                <h3>@essay.Title</h3>
+                <div class="meta-row">
+                    <span>@essay.Date</span>
+                    <span>@essay.ReadTime</span>
+                    <span>@essay.Category</span>
+                </div>
+            </article>
+        }
+    </div>
+</section>

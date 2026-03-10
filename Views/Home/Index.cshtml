@@ -1,0 +1,13 @@
+@model HomePageViewModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+@await Html.PartialAsync("_Hero", Model)
+@await Html.PartialAsync("_Manifesto", Model)
+@await Html.PartialAsync("_FeaturedWorks", Model)
+@await Html.PartialAsync("_ConceptSection")
+@await Html.PartialAsync("_ArchiveIndex", Model)
+@await Html.PartialAsync("_AboutSection", Model)
+@await Html.PartialAsync("_ThoughtsSection", Model)
+@await Html.PartialAsync("_ContactSection", Model)

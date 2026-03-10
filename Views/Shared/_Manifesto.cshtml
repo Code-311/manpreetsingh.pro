@@ -1,0 +1,13 @@
+@model HomePageViewModel
+<section class="manifesto section-reveal" aria-labelledby="manifesto-title">
+    <div class="section-heading">
+        <p class="micro-label">01</p>
+        <h2 id="manifesto-title">@Model.ManifestoTitle</h2>
+    </div>
+    <ol class="manifesto-list">
+        @foreach (var line in Model.ManifestoLines)
+        {
+            <li>@line</li>
+        }
+    </ol>
+</section>
