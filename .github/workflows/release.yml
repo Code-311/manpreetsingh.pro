@@ -1,0 +1,67 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      WEB_PROJECT: manpreetsingh.pro.csproj
+      PUBLISH_DIR: artifacts/publish
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve .NET SDK version
+        id: dotnet-version
+        shell: bash
+        run: |
+          if [ -f global.json ]; then
+            VERSION=$(python - <<'PY'
+import json
+with open('global.json', 'r', encoding='utf-8') as f:
+    print(json.load(f)['sdk']['version'])
+PY
+)
+          else
+            VERSION=$(python - <<'PY'
+import re
+from pathlib import Path
+csproj = next(Path('.').glob('*.csproj'))
+text = csproj.read_text(encoding='utf-8')
+m = re.search(r'<TargetFramework>net(\d+)\.(\d+)</TargetFramework>', text)
+if not m:
+    raise SystemExit('Unable to resolve TargetFramework from project file.')
+print(f"{m.group(1)}.{m.group(2)}.x")
+PY
+)
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ steps.dotnet-version.outputs.version }}
+
+      - name: Restore
+        run: dotnet restore ${{ env.WEB_PROJECT }}
+
+      - name: Build (Release)
+        run: dotnet build ${{ env.WEB_PROJECT }} --configuration Release --no-restore
+
+      - name: Publish
+        run: dotnet publish ${{ env.WEB_PROJECT }} --configuration Release --no-build --output ${{ env.PUBLISH_DIR }}
+
+      - name: Upload publish artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: manpreetsingh-pro-${{ github.ref_name }}
+          path: ${{ env.PUBLISH_DIR }}
+          if-no-files-found: error
