@@ -1,0 +1,10 @@
+@model manpreetsingh.pro.Areas.Admin.ViewModels.LoginViewModel
+<h1>Admin Login</h1>
+<form method="post">
+    @Html.AntiForgeryToken()
+    <label>Username <input asp-for="Username" /></label>
+    <label>Password <input asp-for="Password" /></label>
+    <label>Remember <input asp-for="RememberMe" /></label>
+    <input type="hidden" asp-for="ReturnUrl" />
+    <button type="submit">Login</button>
+</form>
