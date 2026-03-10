@@ -1,0 +1,3 @@
+@model ListPageViewModel<MediaItem>
+<h1>@Model.Title</h1>
+@foreach (var item in Model.Items){<article><h2>@item.Title</h2><p>@item.Summary</p>@if(item.ThumbnailAssetId.HasValue){<img src="/assets/@item.ThumbnailAssetId" alt="@item.ThumbnailAsset?.AltText" />}</article>}

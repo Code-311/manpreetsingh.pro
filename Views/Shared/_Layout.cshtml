@@ -1,18 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="system" data-accent="graphite">
+<html lang="en" data-theme="system">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Manpreet Singh</title>
+    <title>Manpreet Singh</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-    @await Html.PartialAsync("_Header")
-    <main id="main-content" class="site-main">
-        @RenderBody()
-    </main>
-    @await Html.PartialAsync("_Footer")
-    <script src="~/js/site.js" asp-append-version="true"></script>
+<header class="site-header">
+    <a class="brand" asp-controller="Home" asp-action="Index"><img src="~/img/Logo-Out.svg" alt="Manpreet Singh" /></a>
+    <nav>
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <a asp-controller="Writings" asp-action="Index">Writings</a>
+        <a asp-controller="Models" asp-action="Index">Models</a>
+        <a asp-controller="Tools" asp-action="Index">Tools</a>
+        <a asp-controller="Media" asp-action="Index">Media</a>
+        <a asp-controller="Pages" asp-action="About">About</a>
+        <a asp-controller="Pages" asp-action="Contact">Contact</a>
+    </nav>
+    <button id="theme-toggle" type="button">Theme</button>
+</header>
+<main class="container">@RenderBody()</main>
+<footer class="site-footer">HOW ORGANIZATIONS REALLY WORK</footer>
+<script src="~/js/site.js" asp-append-version="true"></script>
 </body>
 </html>

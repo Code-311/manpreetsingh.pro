@@ -1,0 +1,2 @@
+@model IReadOnlyList<UploadedAsset>
+<h2>Uploaded Assets</h2><a asp-action="Create">Upload</a>@foreach(var x in Model){<div>@x.FileName (@x.ContentType) id:@x.Id <form method="post" asp-action="Delete" asp-route-id="@x.Id">@Html.AntiForgeryToken()<button>Delete</button></form></div>}

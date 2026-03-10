@@ -1,0 +1,2 @@
+@model DetailPageViewModel<Tool>
+<article><h1>@Model.Item.Title</h1>@Html.Raw(Model.Item.RenderedHtml)<h3>Questions</h3><ul>@foreach(var q in Model.Item.Questions.OrderBy(x=>x.SortOrder)){<li>@q.Prompt</li>}</ul></article>

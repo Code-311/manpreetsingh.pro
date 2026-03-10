@@ -1,0 +1,2 @@
+@model StaticPageEditViewModel
+<h2>Static Page</h2><form method="post">@Html.AntiForgeryToken()<input asp-for="Slug"/><input asp-for="Title"/><textarea asp-for="MarkdownBody"></textarea><label>Publish<input asp-for="IsPublished"/></label><button>Save</button></form>

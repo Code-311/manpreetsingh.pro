@@ -1,0 +1,2 @@
+@model ToolEditViewModel
+<h2>Tool</h2><form method="post">@Html.AntiForgeryToken()<input asp-for="Slug"/><input asp-for="Title"/><input asp-for="Summary"/><textarea asp-for="MarkdownBody"></textarea><input asp-for="ToolType"/><input asp-for="EstimatedDuration"/><input asp-for="SortOrder"/><label>Publish<input asp-for="IsPublished"/></label><button>Save</button></form>

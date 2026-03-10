@@ -1,0 +1,2 @@
+@model EssayEditViewModel
+<h2>Essay</h2><form method="post">@Html.AntiForgeryToken()<input asp-for="Slug" placeholder="slug"/><input asp-for="Title"/><input asp-for="Summary"/><textarea asp-for="MarkdownBody"></textarea><input asp-for="ReadTimeMinutes"/><input asp-for="Category"/><input asp-for="HeroAssetId"/><input asp-for="SortOrder"/><label>Publish<input asp-for="IsPublished"/></label><button type="submit">Save</button></form>

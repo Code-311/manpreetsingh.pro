@@ -1,0 +1,2 @@
+@model MediaItemEditViewModel
+<h2>Media Item</h2><form method="post">@Html.AntiForgeryToken()<input asp-for="Slug"/><input asp-for="Title"/><input asp-for="Summary"/><textarea asp-for="MarkdownBody"></textarea><input asp-for="MediaType"/><input asp-for="Duration"/><input asp-for="VideoAssetId"/><input asp-for="ThumbnailAssetId"/><input asp-for="SortOrder"/><label>Publish<input asp-for="IsPublished"/></label><button>Save</button></form>
