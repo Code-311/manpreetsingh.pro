@@ -1,0 +1,12 @@
+@model HomePageViewModel
+<section class="contact section-reveal" id="contact" aria-labelledby="contact-title">
+    <div class="section-heading">
+        <p class="micro-label">07</p>
+        <h2 id="contact-title">Contact</h2>
+    </div>
+    <div class="contact-grid">
+        <a href="mailto:@Model.ContactEmail">@Model.ContactEmail</a>
+        <a href="tel:@Model.ContactPhone.Replace(" ", string.Empty)">@Model.ContactPhone</a>
+        <p>@Model.ContactLocation</p>
+    </div>
+</section>
