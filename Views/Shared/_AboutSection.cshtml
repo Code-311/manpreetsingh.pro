@@ -1,0 +1,16 @@
+@model HomePageViewModel
+<section class="about section-reveal" id="about" aria-labelledby="about-title">
+    <div class="section-heading">
+        <p class="micro-label">05</p>
+        <h2 id="about-title">@Model.AboutTitle</h2>
+    </div>
+    <div class="about-content">
+        <p>@Model.AboutBody</p>
+        <ul class="capabilities" aria-label="Capabilities">
+            @foreach (var capability in Model.Capabilities)
+            {
+                <li>@capability</li>
+            }
+        </ul>
+    </div>
+</section>
