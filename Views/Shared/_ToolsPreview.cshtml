@@ -8,7 +8,7 @@
         @foreach (var item in Model.Tools)
         {
             <article class="info-card" tabindex="0">
-                <h3><a href="/tools/@item.Slug">@item.Name</a></h3>
+                <h3><a asp-controller="Home" asp-action="Tool" asp-route-slug="@item.Slug">@item.Name</a></h3>
                 <p>@item.Summary</p>
             </article>
         }

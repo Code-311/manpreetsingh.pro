@@ -12,7 +12,7 @@
         @foreach (var item in Model.Items)
         {
             <article class="line-item" tabindex="0">
-                <h2><a href="/writings/@item.Slug">@item.Title</a></h2>
+                <h2><a asp-controller="Home" asp-action="Writing" asp-route-slug="@item.Slug">@item.Title</a></h2>
                 <p>@item.Summary</p>
                 <div class="meta-row">
                     <span>@item.PublishedOn</span>

@@ -8,7 +8,7 @@
         @foreach (var item in Model.MediaItems)
         {
             <article class="line-item" tabindex="0">
-                <h3><a href="/media">@item.Title</a></h3>
+                <h3><a asp-controller="Home" asp-action="Media">@item.Title</a></h3>
                 <div class="meta-row">
                     <span>@item.Format</span>
                     <span>@item.Duration</span>

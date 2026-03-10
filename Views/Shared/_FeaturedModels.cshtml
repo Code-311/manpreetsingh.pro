@@ -8,7 +8,7 @@
         @foreach (var model in Model.FeaturedModels)
         {
             <article class="info-card" tabindex="0">
-                <h3><a href="/models/@model.Slug">@model.Name</a></h3>
+                <h3><a asp-controller="Home" asp-action="Model" asp-route-slug="@model.Slug">@model.Name</a></h3>
                 <p>@model.Summary</p>
                 <p class="micro">@model.CoreQuestion</p>
             </article>
