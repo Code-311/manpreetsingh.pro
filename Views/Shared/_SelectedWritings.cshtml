@@ -1,0 +1,20 @@
+@model HomePageViewModel
+<section class="section-reveal" aria-labelledby="selected-writings-title">
+    <div class="section-head">
+        <p class="kicker">03</p>
+        <h2 id="selected-writings-title">Selected writings</h2>
+    </div>
+    <div class="stack-list">
+        @for (var i = 0; i < Math.Min(3, Model.SelectedWritings.Count); i++)
+        {
+            var item = Model.SelectedWritings[i];
+            <article class="line-item" tabindex="0">
+                <h3><a asp-controller="Home" asp-action="Writing" asp-route-slug="@item.Slug">@item.Title</a></h3>
+                <div class="meta-row">
+                    <span>@item.PublishedOn</span>
+                    <span>@item.ReadTime</span>
+                </div>
+            </article>
+        }
+    </div>
+</section>

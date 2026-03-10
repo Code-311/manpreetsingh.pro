@@ -1,0 +1,88 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve .NET SDK version
+        id: dotnet-version
+        shell: bash
+        run: |
+          if [ -f global.json ]; then
+            VERSION=$(python - <<'PY'
+import json
+with open('global.json', 'r', encoding='utf-8') as f:
+    print(json.load(f)['sdk']['version'])
+PY
+)
+          else
+            VERSION=$(python - <<'PY'
+import re
+from pathlib import Path
+csproj = next(Path('.').glob('*.csproj'))
+text = csproj.read_text(encoding='utf-8')
+m = re.search(r'<TargetFramework>net(\d+)\.(\d+)</TargetFramework>', text)
+if not m:
+    raise SystemExit('Unable to resolve TargetFramework from project file.')
+print(f"{m.group(1)}.{m.group(2)}.x")
+PY
+)
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ steps.dotnet-version.outputs.version }}
+
+      - name: Restore
+        run: dotnet restore manpreetsingh.pro.csproj
+
+      - name: Build (Release)
+        run: dotnet build manpreetsingh.pro.csproj --configuration Release --no-restore
+
+      - name: Discover test projects
+        id: test-projects
+        shell: bash
+        run: |
+          {
+            echo "projects<<EOF"
+            find . -name '*.csproj' -not -path './bin/*' -not -path './obj/*' | while read -r proj; do
+              if [[ "$proj" == *".Tests.csproj" ]]; then
+                echo "$proj"
+              fi
+            done
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Run tests (Release)
+        if: steps.test-projects.outputs.projects != ''
+        shell: bash
+        run: |
+          while IFS= read -r test_proj; do
+            [ -z "$test_proj" ] && continue
+            dotnet test "$test_proj" --configuration Release --no-build
+          done <<< "${{ steps.test-projects.outputs.projects }}"
+
+      - name: No test projects found
+        if: steps.test-projects.outputs.projects == ''
+        run: echo "No test projects found. Skipping test execution."

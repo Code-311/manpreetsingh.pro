@@ -1,0 +1,19 @@
+@model HomePageViewModel
+<section class="section-reveal" aria-labelledby="media-preview-title">
+    <div class="section-head">
+        <p class="kicker">05</p>
+        <h2 id="media-preview-title">Media preview</h2>
+    </div>
+    <div class="stack-list">
+        @foreach (var item in Model.MediaItems)
+        {
+            <article class="line-item" tabindex="0">
+                <h3><a asp-controller="Home" asp-action="Media">@item.Title</a></h3>
+                <div class="meta-row">
+                    <span>@item.Format</span>
+                    <span>@item.Duration</span>
+                </div>
+            </article>
+        }
+    </div>
+</section>
