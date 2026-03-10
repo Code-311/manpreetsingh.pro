@@ -1,0 +1,17 @@
+@model HomePageViewModel
+<section class="section-reveal" aria-labelledby="featured-models-title">
+    <div class="section-head">
+        <p class="kicker">02</p>
+        <h2 id="featured-models-title">Featured models</h2>
+    </div>
+    <div class="card-grid">
+        @foreach (var model in Model.FeaturedModels)
+        {
+            <article class="info-card" tabindex="0">
+                <h3><a href="/models/@model.Slug">@model.Name</a></h3>
+                <p>@model.Summary</p>
+                <p class="micro">@model.CoreQuestion</p>
+            </article>
+        }
+    </div>
+</section>

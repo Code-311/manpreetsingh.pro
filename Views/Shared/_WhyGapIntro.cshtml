@@ -1,0 +1,14 @@
+@model HomePageViewModel
+<section class="section-reveal" aria-labelledby="why-gap-title">
+    <div class="section-head">
+        <p class="kicker">01</p>
+        <h2 id="why-gap-title">Why Gap</h2>
+    </div>
+    <p class="lead-copy">@Model.WhyGapIntro</p>
+    <ul class="plain-list">
+        @foreach (var point in Model.WhyGapPoints)
+        {
+            <li>@point</li>
+        }
+    </ul>
+</section>

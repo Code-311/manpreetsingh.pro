@@ -1,0 +1,13 @@
+@model HomePageViewModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+@await Html.PartialAsync("_Hero", Model)
+@await Html.PartialAsync("_WhyGapIntro", Model)
+@await Html.PartialAsync("_FeaturedModels", Model)
+@await Html.PartialAsync("_SelectedWritings", Model)
+@await Html.PartialAsync("_ToolsPreview", Model)
+@await Html.PartialAsync("_MediaPreview", Model)
+@await Html.PartialAsync("_AboutPreview", Model)
+@await Html.PartialAsync("_ContactPreview", Model)
